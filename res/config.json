@@ -1,0 +1,10 @@
+{
+  "prefix": "$",
+  "token": "INSERT-BOT-TOKEN-HERE",
+  "owners": ["INSERT-YOUR-ID-HERE"],
+  "groups": {
+    "info": "Bilgilendirme--Bilgi alabileceğiniz komutlar bulunur.",
+    "tools": "Araçlar--İşe yarar komutlar bulunur.",
+    "nulldescriptiontext": "Açıklama girilmedi."
+  }
+}
