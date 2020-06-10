@@ -28,6 +28,8 @@ public final class PingCommand extends Command {
 
 `"owners": ["INSERT-YOUR-ID-HERE"],`: Bot owner id's.
 
+`"cooldown": 5000`: Cooldown for regular users. The bot owners are doesn't affect the cooldown.
+
 # Group Names And Descriptions
 
 `"info": "Bilgilendirme--Bilgi alabileceğiniz komutlar bulunur."`: The key named as 'info' for 'info' commands package. The group name is before then '--'. The group description is after then '--'.
