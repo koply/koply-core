@@ -14,7 +14,7 @@ import java.util.*;
  * @author Koply
  * @since 03/06/2020
  */
-public class DataManager {
+public final class DataManager {
     // variables
     private String prefix = "$$";
     private String token = "--";

@@ -13,10 +13,10 @@ import net.dv8tion.jda.api.EmbedBuilder;
  */
 @CommandName("help")
 @CommandDescription("Botta bulunan komutları görmenize yarar.")
-public class HelpCommand extends Command {
+public final class HelpCommand extends Command {
 
     @Override
-    public void handle(CommandParameters cmd) {
+    public final void handle(CommandParameters cmd) {
         if (cmd.getArgs().length == 1) {
             EmbedBuilder eb = CommandHandler.getInstance().getGroupEmbeds().get("main")
                     .setAuthor(cmd.getEvent().getJDA().getSelfUser().getName(), null, cmd.getEvent().getJDA().getSelfUser().getAvatarUrl());

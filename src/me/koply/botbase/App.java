@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author Koply
  * @since 03/06/2020
  */
-public class App {
+public final class App {
 
     public static final Logger logger = Logger.getLogger("App");
 

@@ -11,27 +11,27 @@ public abstract class Command {
     private String description;
     private String group;
 
-    public void setOnlyGuild() {
+    public final void setOnlyGuild() {
         onlyGuild = true;
     }
 
-    public boolean isOnlyGuild() {
+    public final boolean isOnlyGuild() {
         return onlyGuild;
     }
 
-    public void setOnlyOwner() { onlyOwner = true; }
+    public final void setOnlyOwner() { onlyOwner = true; }
 
-    public boolean isOnlyOwner() { return onlyOwner; }
+    public final boolean isOnlyOwner() { return onlyOwner; }
 
-    public void setGroup(String group1) { group = group1; }
+    public final void setGroup(String group1) { group = group1; }
 
-    public String getGroup() { return group; }
+    public final String getGroup() { return group; }
 
-    public void setDescription(String desc) {
+    public final void setDescription(String desc) {
         description = desc;
     }
 
-    public String getDescription() {
+    public final String getDescription() {
         return description;
     }
 }

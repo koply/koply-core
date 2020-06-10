@@ -11,10 +11,10 @@ import me.koply.botbase.commandsystem.annotations.CommandName;
  */
 @CommandName("ping")
 @CommandDescription("Pong!")
-public class PingCommand extends Command {
+public final class PingCommand extends Command {
 
     @Override
-    public void handle(CommandParameters cmd) {
+    public final void handle(CommandParameters cmd) {
         cmd.getTextChannel().sendMessage("Pong!").queue();
     }
 }

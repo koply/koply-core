@@ -23,19 +23,21 @@ import java.util.concurrent.Executors;
  * @author Koply, MegaCrafter
  * @since 03/06/2020
  */
-public class CommandHandler extends ListenerAdapter {
+public final class CommandHandler extends ListenerAdapter {
 
+    // commands map and getter
     private final HashMap<String, Command> commands = new HashMap<>(); // command, object
+    public final HashMap<String, Command> getCommands() { return commands; }
+
     private final ConcurrentMap<String, Long> cooldownList = new ConcurrentHashMap<>();
     private final ExecutorService executorService = Executors.newCachedThreadPool();
 
     private String prefix;
     private List<String> ownerList;
 
-    public HashMap<String, Command> getCommands() { return commands; }
-
+    // help group messages
     private final Map<String, EmbedBuilder> groupEmbeds = new HashMap<>();
-    public Map<String, EmbedBuilder> getGroupEmbeds() { return groupEmbeds; }
+    public final Map<String, EmbedBuilder> getGroupEmbeds() { return groupEmbeds; }
 
     private static CommandHandler instance;
     public static CommandHandler getInstance() {
@@ -44,7 +46,7 @@ public class CommandHandler extends ListenerAdapter {
     }
 
     private boolean init = false;
-    public void init(String prefix, List<String> ownerList) {
+    public final void init(String prefix, List<String> ownerList) {
         if (init) return;
         init = true;
         this.prefix = prefix;
@@ -55,7 +57,7 @@ public class CommandHandler extends ListenerAdapter {
     }
 
     @Override
-    public void onMessageReceived(@Nonnull MessageReceivedEvent e) {
+    public final void onMessageReceived(@Nonnull MessageReceivedEvent e) {
         if (e.isWebhookMessage() || e.getAuthor().isBot()) {
             return;
         }
@@ -158,7 +160,7 @@ public class CommandHandler extends ListenerAdapter {
         Set<Class<? extends Command>> classes = reflections.getSubTypesOf(Command.class);
 
         Map<String, String> groupReplaceList = DataManager.getInstance().getGroupReplaceList();
-        String nullDescriptionText = groupReplaceList.get("nulldescriptiontext").toString();
+        String nullDescriptionText = groupReplaceList.get("nulldescriptiontext");
 
         for (Class<? extends Command> claz : classes) {
             CommandName ci = claz.getAnnotation(CommandName.class);
@@ -177,7 +179,7 @@ public class CommandHandler extends ListenerAdapter {
 
                 CommandDescription commandDescription = claz.getAnnotation(CommandDescription.class);
                 String commandDescriptionText = nullDescriptionText;
-                if (commandDescription == null) {
+                if (commandDescription != null) {
                     commandDescriptionText = commandDescription.value();
                 }
                 command.setDescription(commandDescriptionText);

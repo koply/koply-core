@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
  * @author Koply
  * @since 03/06/2020
  */
-public class MapCleanerPool {
+public final class MapCleanerPool {
     public MapCleanerPool(ConcurrentMap<String, Long> cooldownList) {
         this.cooldownList = cooldownList;
     }
