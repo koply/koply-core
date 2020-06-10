@@ -12,7 +12,8 @@ public class PingCommand extends Command {
         cmd.getTextChannel().sendMessage("Pong!").queue();
     }
 }
-```_Optionally you can use final class and final handle method. This will be nicer._
+```
+_Optionally you can use final class and final handle method. This will be nicer._
 
 `@CommandName`: Command's name for usage. 
 
