@@ -3,6 +3,7 @@ package me.koply.botbase.commandsystem;
 import me.koply.botbase.commandsystem.annotations.CommandDescription;
 import me.koply.botbase.commandsystem.annotations.CommandName;
 import me.koply.botbase.commandsystem.annotations.GuildOnly;
+import me.koply.botbase.commandsystem.annotations.OwnerOnly;
 import me.koply.botbase.data.ConfigManager;
 import me.koply.botbase.utilities.MapCleanerPool;
 import me.koply.botbase.App;
@@ -175,6 +176,11 @@ public final class CommandHandler extends ListenerAdapter {
                 GuildOnly guildOnly = claz.getAnnotation(GuildOnly.class);
                 if (guildOnly != null) {
                     command.setOnlyGuild();
+                }
+
+                OwnerOnly ownerOnly = claz.getAnnotation(OwnerOnly.class);
+                if (ownerOnly != null) {
+                    command.setOnlyOwner();
                 }
 
                 CommandDescription commandDescription = claz.getAnnotation(CommandDescription.class);
