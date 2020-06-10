@@ -26,7 +26,7 @@ public final class PingCommand extends Command {
 
 `"token": "INSERT-BOT-TOKEN-HERE"`: Bot token.
 
-`"owners": ["INSERT-YOUR-ID-HERE"],`: Bot owner id's.
+`"owners": ["INSERT-YOUR-ID-HERE"]`: Bot owner id's.
 
 `"cooldown": 5000`: Cooldown for regular users. The bot owners are doesn't affect the cooldown.
 
