@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.koply.botbase</groupId>
-    <artifactId>koply-bot-base</artifactId>
-    <version>1.0</version>
+    <artifactId>botbase</artifactId>
+    <version>1.1</version>
 
     <name>Koply Bot Base</name>
 
