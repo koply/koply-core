@@ -3,7 +3,7 @@ package me.koply.botbase.commandsystem;
 import me.koply.botbase.commandsystem.annotations.CommandDescription;
 import me.koply.botbase.commandsystem.annotations.CommandName;
 import me.koply.botbase.commandsystem.annotations.GuildOnly;
-import me.koply.botbase.data.DataManager;
+import me.koply.botbase.data.ConfigManager;
 import me.koply.botbase.utilities.MapCleanerPool;
 import me.koply.botbase.App;
 import me.koply.botbase.utilities.Util;
@@ -133,7 +133,7 @@ public final class CommandHandler extends ListenerAdapter {
 
         EmbedBuilder mainBuilder = new EmbedBuilder()
                 .setColor(Util.randomColor())
-                .addField("❯ Kullanım", "`" + DataManager.getInstance().getPrefix() + "help <grup>` şeklinde kullanabilirsiniz. \nGruplar aşağıda listelenmiştir.", false)
+                .addField("❯ Kullanım", "`" + ConfigManager.getInstance().getPrefix() + "help <grup>` şeklinde kullanabilirsiniz. \nGruplar aşağıda listelenmiştir.", false)
                 .addField("❯ Gruplar", mainEmbed.toString(), false)
                 .addField("❯ Bazı Linkler", "[Koply-Core](https://github.com/MusaBrt/koply-core)", false);
         groupEmbeds.put("main", mainBuilder);
@@ -159,7 +159,7 @@ public final class CommandHandler extends ListenerAdapter {
         Reflections reflections = new Reflections(CommandHandler.class.getPackage().getName() + ".commands");
         Set<Class<? extends Command>> classes = reflections.getSubTypesOf(Command.class);
 
-        Map<String, String> groupReplaceList = DataManager.getInstance().getGroupReplaceList();
+        Map<String, String> groupReplaceList = ConfigManager.getInstance().getGroupReplaceList();
         String nullDescriptionText = groupReplaceList.get("nulldescriptiontext");
 
         for (Class<? extends Command> claz : classes) {

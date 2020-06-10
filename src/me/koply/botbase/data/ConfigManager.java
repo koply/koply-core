@@ -14,7 +14,7 @@ import java.util.*;
  * @author Koply
  * @since 03/06/2020
  */
-public final class DataManager {
+public final class ConfigManager {
     // variables
     private String prefix = "$$";
     private String token = "--";
@@ -27,8 +27,8 @@ public final class DataManager {
     public String getToken() { return token; }
     public Map<String, String> getGroupReplaceList() { return groupReplaceList; }
 
-    public DataManager loadConfig() {
-        String config = readAll(new File(DataManager.class.getResource("/config.json").getFile()));
+    public ConfigManager loadConfig() {
+        String config = readAll(new File(ConfigManager.class.getResource("/config.json").getFile()));
 
         JSONObject jsonObject = new JSONObject(config);
         prefix = jsonObject.get("prefix").toString();
@@ -70,10 +70,10 @@ public final class DataManager {
     }
 
     // INSTANCE
-    private static DataManager instance;
+    private static ConfigManager instance;
 
-    public static DataManager getInstance() {
-        if (instance == null) instance = new DataManager();
+    public static ConfigManager getInstance() {
+        if (instance == null) instance = new ConfigManager();
         return instance;
     }
 }
