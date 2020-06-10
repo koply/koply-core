@@ -35,6 +35,7 @@ public final class CommandHandler extends ListenerAdapter {
 
     private String prefix;
     private List<String> ownerList;
+    private int cooldown;
 
     // help group messages
     private final Map<String, EmbedBuilder> groupEmbeds = new HashMap<>();
@@ -47,11 +48,12 @@ public final class CommandHandler extends ListenerAdapter {
     }
 
     private boolean init = false;
-    public final void init(String prefix, List<String> ownerList) {
+    public final void init(String prefix, List<String> ownerList, int cooldown) {
         if (init) return;
         init = true;
         this.prefix = prefix;
         this.ownerList = ownerList;
+        this.cooldown = cooldown;
         registerCommands();
         new MapCleanerPool(cooldownList).asyncCleaner();
         generateHelpEmbeds();
@@ -118,7 +120,7 @@ public final class CommandHandler extends ListenerAdapter {
     private boolean cooldownCheck(String userID) {
         long listTime = cooldownList.getOrDefault(userID, 0L);
         if (listTime == 0) return false;
-        else return System.currentTimeMillis() - listTime <= 5000;
+        else return System.currentTimeMillis() - listTime <= cooldown;
     }
 
     private void generateHelpEmbeds() {

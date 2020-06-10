@@ -18,16 +18,18 @@ public final class ConfigManager {
     // variables
     private String prefix = "$$";
     private String token = "--";
+    private int cooldown = 5000;
     private List<String> ownerList = new ArrayList<>();
     private Map<String, String> groupReplaceList = new HashMap<>();
 
     // getter methods
-    public String getPrefix() { return prefix; }
-    public List<String> getOwnerList() { return ownerList; }
-    public String getToken() { return token; }
-    public Map<String, String> getGroupReplaceList() { return groupReplaceList; }
+    public final String getPrefix() { return prefix; }
+    public final String getToken() { return token; }
+    public final int getCooldown() { return cooldown; }
+    public final List<String> getOwnerList() { return ownerList; }
+    public final Map<String, String> getGroupReplaceList() { return groupReplaceList; }
 
-    public ConfigManager loadConfig() {
+    public final ConfigManager loadConfig() {
         String config = readAll(new File(ConfigManager.class.getResource("/config.json").getFile()));
 
         JSONObject jsonObject = new JSONObject(config);
@@ -45,6 +47,13 @@ public final class ConfigManager {
             String key = groupsIterator.next();
             groupReplaceList.put(key, groupsObject.get(key).toString());
         }
+
+        try {
+            cooldown = jsonObject.getInt("cooldown");
+        } catch (Exception ignored) {
+            cooldown = 1000;
+        }
+
         App.logger.info("Config loaded.");
         return instance;
     }

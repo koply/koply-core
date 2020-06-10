@@ -27,7 +27,7 @@ public final class App {
         ConfigManager configManager = ConfigManager.getInstance().loadConfig();
         JDA jda = JDABuilder.createDefault(configManager.getToken()).setAutoReconnect(true).build();
         jda.awaitReady();
-        CommandHandler.getInstance().init(configManager.getPrefix(), configManager.getOwnerList());
+        CommandHandler.getInstance().init(configManager.getPrefix(), configManager.getOwnerList(), configManager.getCooldown());
         jda.addEventListener(CommandHandler.getInstance());
 
         setupLogger();
