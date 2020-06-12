@@ -5,14 +5,15 @@ Simple bot base includes CommandHandler and Config system.
 ```java
 @CommandName("ping")
 @CommandDescription("Pong!")
-public final class PingCommand extends Command {
+public class PingCommand extends Command {
 
     @Override
-    public final void handle(CommandParameters cmd) {
+    public void handle(CommandParameters cmd) {
         cmd.getTextChannel().sendMessage("Pong!").queue();
     }
 }
 ```
+_Optionally you can use final class and final handle method. This will be nicer._
 
 `@CommandName`: Command's name for usage. 
 
@@ -26,7 +27,9 @@ public final class PingCommand extends Command {
 
 `"token": "INSERT-BOT-TOKEN-HERE"`: Bot token.
 
-`"owners": ["INSERT-YOUR-ID-HERE"],`: Bot owner id's.
+`"owners": ["INSERT-YOUR-ID-HERE"]`: Bot owner id's.
+
+`"cooldown": 5000`: Cooldown for regular users. The bot owners are doesn't affect the cooldown.
 
 # Group Names And Descriptions
 
