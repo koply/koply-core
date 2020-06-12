@@ -5,6 +5,7 @@
   "groups": {
     "info": "Bilgilendirme--Bilgi alabileceğiniz komutlar bulunur.",
     "tools": "Araçlar--İşe yarar komutlar bulunur.",
+    "owner": "Admin--Bot sahibine özel komutlar bulunur.",
     "nulldescriptiontext": "Açıklama girilmedi."
   },
   "comment": "Cooldown is must be integer and milliseconds. For ex now 5 seconds. If cooldown isn't a valid number the cooldown is assigned to 1000 automatically.",
