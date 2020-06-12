@@ -41,8 +41,8 @@ _Optionally you can use final class and final handle method. This will be nicer.
 
 <details>
   <summary>v2.0</summary>
-    * Added file database (json) system.
-    * Fixing some bugs.
+    <p> * Added file database (json) system.<br>
+        * Fixing some bugs.</p>
 </details>
 
 
