@@ -103,7 +103,7 @@ public final class CommandHandler extends ListenerAdapter {
             return;
         }
 
-        CommandParameters commandParameters = new CommandParameters(e, e.getMessage(), e.getTextChannel(), e.getMember(), cmdArgs);
+        CommandParameters commandParameters = new CommandParameters(e, e.getMessage(), e.getTextChannel(), e.getMember(), cmdArgs, prefix);
         App.logger.info("Last command has been submitted to ExecutorService");
         long firstTime = System.currentTimeMillis();
         cooldownList.put(authorID, firstTime);
@@ -128,9 +128,18 @@ public final class CommandHandler extends ListenerAdapter {
 
         StringBuilder mainEmbed = new StringBuilder();
         for (Map.Entry<String, Command> entry : commands.entrySet()) {
+            String group = entry.getValue().getGroup();
+            if (group == null) {
+                App.logger.info("CommandHandler#generateHelpEmbeds -> "+entry.getKey() + " group doesn't have description. Skipping..");
+                continue;
+            }
             String[] splittedGroupText = entry.getValue().getGroup().split("--");
-            mainEmbed.append("`").append(splittedGroupText[0]).append("` - ").append(splittedGroupText[1]).append("\n");
             groupCommands.computeIfAbsent(splittedGroupText[0], s -> new ArrayList<>());
+
+            if (groupCommands.get(splittedGroupText[0]).size() == 0) {
+                mainEmbed.append("`").append(splittedGroupText[0]).append("` - ").append(splittedGroupText[1]).append("\n");
+            }
+
             groupCommands.get(splittedGroupText[0]).add(entry.getValue());
         }
 

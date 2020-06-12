@@ -11,12 +11,13 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
  */
 public final class CommandParameters {
 
-    public CommandParameters(MessageReceivedEvent e, Message msg, TextChannel textChan, Member mem, String[] args) {
+    public CommandParameters(MessageReceivedEvent e, Message msg, TextChannel textChan, Member mem, String[] args, String prefix) {
         event = e;
         message = msg;
         textChannel = textChan;
         member = mem;
         this.args = args;
+        this.prefix = prefix;
     }
 
     private final MessageReceivedEvent event;
@@ -24,24 +25,27 @@ public final class CommandParameters {
     private final TextChannel textChannel;
     private final Member member;
     private final String[] args;
+    private final String prefix;
 
-    public MessageReceivedEvent getEvent() {
+    public final MessageReceivedEvent getEvent() {
         return event;
     }
 
-    public Message getMessage() {
+    public final Message getMessage() {
         return message;
     }
 
-    public TextChannel getTextChannel() {
+    public final TextChannel getTextChannel() {
         return textChannel;
     }
 
-    public Member getMember() {
+    public final Member getMember() {
         return member;
     }
 
-    public String[] getArgs() {
+    public final String[] getArgs() {
         return args;
     }
+
+    public final String getPrefix() { return prefix; }
 }

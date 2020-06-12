@@ -2,6 +2,7 @@ package me.koply.botbase;
 
 import me.koply.botbase.commandsystem.CommandHandler;
 import me.koply.botbase.data.ConfigManager;
+import me.koply.botbase.data.DataManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
@@ -24,13 +25,15 @@ public final class App {
 
     public App() throws LoginException, InterruptedException {
         logger.info("Hello, World!");
-        ConfigManager configManager = ConfigManager.getInstance().loadConfig();
+        ConfigManager configManager = ConfigManager.getInstance();
         JDA jda = JDABuilder.createDefault(configManager.getToken()).setAutoReconnect(true).build();
         jda.awaitReady();
         CommandHandler.getInstance().init(configManager.getPrefix(), configManager.getOwnerList(), configManager.getCooldown());
         jda.addEventListener(CommandHandler.getInstance());
 
         setupLogger();
+
+        DataManager.getInstance();
     }
 
     private void setupLogger() {

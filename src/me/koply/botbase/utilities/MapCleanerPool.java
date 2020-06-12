@@ -40,6 +40,7 @@ public final class MapCleanerPool {
                 i++;
             }
         }
+        if (i==0) return;
         App.logger.info("Removed " + i + " entries deleted from cooldown list.");
     }
 }
