@@ -37,6 +37,14 @@ _Optionally you can use final class and final handle method. This will be nicer.
 
 `"nulldescriptiontext": "Açıklama girilmedi."`: This line for non-descriptioned commands.
 
+# Versions Changelog
+
+<details>
+  <summary>v2.0</summary>
+    <p> * Added file database (json) system.<br>
+        * Fixing some bugs.</p>
+</details>
+
 
 
 
