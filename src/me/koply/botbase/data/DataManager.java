@@ -21,8 +21,12 @@ public final class DataManager {
     public DataManager() {
         String dataFilePath = ConfigManager.getInstance().getDataFilePath();
         dataFile = new File(dataFilePath);
+        dataFileGen(dataFile);
         App.logger.info("Data file path: " + dataFilePath);
+        Runtime.getRuntime().addShutdownHook(new Thread(this::saveDatas, "Shutdown-thread"));
+    }
 
+    private void dataFileGen(File file) {
         if (!dataFile.exists()) {
             try {
                 App.logger.info("Data file doesn't exists. Creating...");
@@ -31,10 +35,6 @@ public final class DataManager {
                 App.logger.info("Exception: " + ex.getMessage());
             }
         }
-
-        initDatas();
-
-        Runtime.getRuntime().addShutdownHook(new Thread(this::saveDatas, "Shutdown-thread"));
     }
 
     private final HashMap<String, GuildData> guildDatas = new HashMap<>();
@@ -46,7 +46,7 @@ public final class DataManager {
         return guildDatas.get(id);
     }
 
-    private void initDatas() {
+    public final void initDatas() {
         App.logger.info("Data file is reading...");
         String dataFileStr = Util.readAll(dataFile);
         if (dataFileStr == null || dataFileStr.equals("")) {

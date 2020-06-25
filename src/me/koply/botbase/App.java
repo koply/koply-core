@@ -33,7 +33,7 @@ public final class App {
 
         setupLogger();
 
-        DataManager.getInstance();
+        DataManager.getInstance().initDatas();
     }
 
     private void setupLogger() {
