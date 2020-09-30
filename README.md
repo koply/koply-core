@@ -1,7 +1,7 @@
-# Koply Core
+# Koply Core Async Bot Base
 Simple bot base includes CommandHandler and Config system.
 
-# How To Create A Command
+## How To Create A Command
 ```java
 @CommandName("ping")
 @CommandDescription("Pong!")
@@ -21,7 +21,7 @@ _Optionally you can use final class and final handle method. This will be nicer.
 
 `@OwnerOnly`: This command usable for only bot owners.
 
-# Config
+## Config.json Syntax
 
 `"prefix": "$"`: For command prefix.
 
@@ -31,13 +31,13 @@ _Optionally you can use final class and final handle method. This will be nicer.
 
 `"cooldown": 5000`: Cooldown for regular users. The bot owners are doesn't affect the cooldown.
 
-# Group Names And Descriptions
+### Group Names And Descriptions
 
 `"info": "Bilgilendirme--Bilgi alabileceğiniz komutlar bulunur."`: The key named as 'info' for 'info' commands package. The group name is before then '--'. The group description is after then '--'.
 
 `"nulldescriptiontext": "Açıklama girilmedi."`: This line for non-descriptioned commands.
 
-# Versions Changelog
+## Versions Changelog
 
 <details>
   <summary>v2.0</summary>
