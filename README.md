@@ -1,5 +1,4 @@
 <h1 align="center"> Koply Core Async Bot Base </h1>
-<hr>
 Simple bot base includes CommandHandler and Config system.
 
 ## How To Create A Command
