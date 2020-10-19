@@ -1,4 +1,9 @@
 <h1 align="center"> Koply Core Async Bot Base </h1>
+
+[![Build Status](https://travis-ci.com/musabrt/koply-core.svg?branch=master)](https://travis-ci.com/musabrt/koply-core)
+![LICENSE](https://img.shields.io/github/license/MusaBrt/koply-core?style=flat)
+![stars](https://img.shields.io/github/stars/MusaBrt/koply-core?style=flat)
+
 Simple bot base includes CommandHandler and Config system.
 
 ## How To Create A Command
